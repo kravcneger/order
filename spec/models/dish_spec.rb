@@ -1,5 +1,7 @@
 require 'rails_helper'
 
+Rails.application.load_tasks
+
 RSpec.describe 'Dish', type: :model do
   subject{ Dish.new(name: "borsch")}
   before{ subject.save }
@@ -23,5 +25,17 @@ RSpec.describe 'Dish', type: :model do
 
   it "success" do
     expect(Dish.all.count).to eq(1)
+  end
+
+  describe "#get_orders" do
+    let(:expect_res){Dish.get_orders}
+    let(:eq_res){ [{"count"=>4, "id"=>1, "name"=>"борщ"}, 
+      {"count"=>4, "id"=>3, "name"=>"мастава"}, 
+      {"count"=>4, "id"=>2, "name"=>"плов"}, 
+      {"count"=>3, "id"=>4, "name"=>"роллы"}]}
+    before do
+      Rake::Task["db:seed"].invoke
+    end
+    it { expect(expect_res).to eq(eq_res) }
   end
 end
