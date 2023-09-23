@@ -29,7 +29,8 @@ RSpec.describe 'Dish', type: :model do
 
   describe "#get_orders" do
     let(:expect_res){Dish.get_orders}
-    let(:eq_res){ [{"count"=>4, "id"=>1, "name"=>"борщ"}, 
+    let(:eq_res){ [{"count"=>5, "id"=>5, "name"=>"кола"},
+      {"count"=>4, "id"=>1, "name"=>"борщ"},
       {"count"=>4, "id"=>3, "name"=>"мастава"}, 
       {"count"=>4, "id"=>2, "name"=>"плов"}, 
       {"count"=>3, "id"=>4, "name"=>"роллы"}]}
