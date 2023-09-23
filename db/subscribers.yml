@@ -1,0 +1,19 @@
+# Жрёт всё
+- id: 1
+  email: subscriber1@gmail.com
+
+# Не ест свеклу
+- id: 2
+  email: subscriber2@gmail.com
+
+# Не ест рис
+- id: 3
+  email: subscriber3@gmail.com
+
+# Не ест авокадо и красное мясо
+- id: 4
+  email: subscriber4@gmail.com
+
+# Не ест красное мясо
+- id: 5
+  email: subscriber5@gmail.com

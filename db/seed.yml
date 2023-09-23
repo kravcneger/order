@@ -1,0 +1,83 @@
+disches:
+  id: 1
+  name: борщ
+
+  id: 2
+  name: плов
+
+  id: 3
+  name: мастава
+
+  id: 4
+  name: роллы
+
+ingredients:
+  id: 1
+  name: говядина
+
+  id: 2
+  name: курица
+
+  id: 3
+  name: рис
+
+  id: 4
+  name: картошка
+
+  id: 5
+  name: свекла
+
+  id: 6
+  name: лук
+
+  id: 7
+  name: говядина
+
+  id: 8
+  name: авокадо
+
+  id: 9
+  name: красная рыба
+
+compositions:
+  dish_id: 1
+  ingredient_id: 1
+
+  dish_id: 1
+  ingredient_id: 2
+
+  dish_id: 1
+  ingredient_id: 4
+
+  dish_id: 1
+  ingredient_id: 5
+
+  dish_id: 2
+  ingredient_id: 1
+
+  dish_id: 2
+  ingredient_id: 3
+
+  dish_id: 2
+  ingredient_id: 6
+
+  dish_id: 2
+  ingredient_id: 1
+
+  dish_id: 3
+  ingredient_id: 1
+
+  dish_id: 3
+  ingredient_id: 3
+
+  dish_id: 3
+  ingredient_id: 6
+
+  dish_id: 4
+  ingredient_id: 3
+
+  dish_id: 4
+  ingredient_id: 8
+
+  dish_id: 4
+  ingredient_id: 9
