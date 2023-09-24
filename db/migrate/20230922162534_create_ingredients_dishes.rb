@@ -4,5 +4,7 @@ class CreateIngredientsDishes < ActiveRecord::Migration[7.0]
       t.index :dish_id
       t.index :ingredient_id
     end
+    add_foreign_key :compositions, :dishes, column: :dish_id
+    add_foreign_key :compositions, :ingredients, column: :ingredient_id
   end
 end

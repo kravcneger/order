@@ -4,5 +4,7 @@ class CreateExclusions < ActiveRecord::Migration[7.0]
       t.index :subscriber_id
       t.index :ingredient_id
     end
+    add_foreign_key :exclusions, :subscribers, column: :subscriber_id
+    add_foreign_key :exclusions, :ingredients, column: :ingredient_id
   end
 end
