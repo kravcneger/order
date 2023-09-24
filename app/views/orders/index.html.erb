@@ -1,0 +1,8 @@
+<h1>Заказы </h1>
+
+<% @orders.each do |order|%>
+	<%= order['name']%>
+	<b> <%= order['count'] %></b>
+	</br>
+<%end%>
+
