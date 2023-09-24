@@ -3,7 +3,7 @@ class Ingredient < ApplicationRecord
   has_many :compositions
   has_many :dishes, through: :compositions
 
-	# Намеренно ушёл от использования полиморфной связи
+  # Намеренно ушёл от использования полиморфной связи
   has_many :exclusions
   has_many :subscribers, through: :exclusions
 end

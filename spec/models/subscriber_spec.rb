@@ -18,7 +18,7 @@ RSpec.describe 'Subscriber', type: :model do
     salt = Ingredient.new(name: "salt")
     subject.excluded_ingredients << salt
     expect { subject.save! }.not_to raise_error
-		expect(subject.excluded_ingredients.reload.count).to eq(1)
+    expect(subject.excluded_ingredients.reload.count).to eq(1)
     expect(Ingredient.all.count).to eq(1)
   end
 
