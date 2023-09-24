@@ -34,9 +34,16 @@ RSpec.describe 'Dish', type: :model do
       {"count"=>4, "id"=>3, "name"=>"мастава"}, 
       {"count"=>4, "id"=>2, "name"=>"плов"}, 
       {"count"=>3, "id"=>4, "name"=>"роллы"}]}
-    before do
-      Rake::Task["db:seed"].invoke
+
+    context "with empty data" do
+      it { expect(expect_res).to eq([]) }
     end
-    it { expect(expect_res).to eq(eq_res) }
+
+    context "with data" do
+      before do
+        Rake::Task["db:seed"].invoke
+      end
+      it { expect(expect_res).to eq(eq_res) }
+    end
   end
 end

@@ -12,12 +12,15 @@ class Dish < ApplicationRecord
     ),
     sub_count AS(
       Select count(*) AS cnt from subscribers
-    )  
-    Select dishes.id, dishes.name, (select cnt from sub_count) - COALESCE(max(ex_count),0) AS count  FROM dishes
-      LEFT JOIN compositions ON compositions.dish_id = dishes.id
-      LEFT JOIN exclude_table ex_in ON compositions.ingredient_id = ex_in.ingredient_id
-      GROUP BY dishes.id, dishes.name
-      ORDER BY count DESC, name ASC"
+    ),
+    orders AS(
+    Select d.id AS id, d.name AS name, ((select cnt from sub_count) - COALESCE(max(ex_count),0)) AS count  FROM dishes d
+      LEFT JOIN compositions c ON c.dish_id = d.id
+      LEFT JOIN exclude_table ex_in ON c.ingredient_id = ex_in.ingredient_id
+      GROUP BY d.id, d.name			
+      ORDER BY count DESC, name ASC)
+    Select * from orders where count <> 0
+    "
     ActiveRecord::Base.connection.execute(query).to_a
   end
 end
