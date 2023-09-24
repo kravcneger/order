@@ -1,9 +1,14 @@
 <h1>Выберите продукты, на которые у вас аллергия</h1>
 
 <%= form_for :subscriber, url: subscribers_sign_in_path, method: :post do |f| %>
-  <%= f.text_field :email %>
+  <% flash.each do |type, msg| %>
+    <div>
+      <%= msg %>
+    </div>
+  <% end %>
+  email: <%= f.text_field :email %>
   </br>
-  <%= f.collection_check_boxes :ingredient_ids, @ingredients, :id, :name %>
+  <%= f.collection_check_boxes :ingredient_ids, @ingredients, :id, :name, include_hidden: false %>
   <%= f.submit %>
 <%end%>
 
