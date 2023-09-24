@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_23_105646) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_24_203017) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "compositions", id: false, force: :cascade do |t|
     t.bigint "dish_id", null: false
     t.bigint "ingredient_id", null: false
+    t.index ["dish_id", "ingredient_id"], name: "index_compositions_on_dish_id_and_ingredient_id", unique: true
     t.index ["dish_id"], name: "index_compositions_on_dish_id"
     t.index ["ingredient_id"], name: "index_compositions_on_ingredient_id"
   end
@@ -32,6 +33,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_23_105646) do
     t.bigint "subscriber_id", null: false
     t.bigint "ingredient_id", null: false
     t.index ["ingredient_id"], name: "index_exclusions_on_ingredient_id"
+    t.index ["subscriber_id", "ingredient_id"], name: "index_exclusions_on_subscriber_id_and_ingredient_id", unique: true
     t.index ["subscriber_id"], name: "index_exclusions_on_subscriber_id"
   end
 
