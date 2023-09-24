@@ -49,4 +49,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_23_105646) do
     t.index ["email"], name: "index_subscribers_on_email", unique: true
   end
 
+  add_foreign_key "compositions", "dishes"
+  add_foreign_key "compositions", "ingredients"
+  add_foreign_key "exclusions", "ingredients"
+  add_foreign_key "exclusions", "subscribers"
 end
