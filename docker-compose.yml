@@ -1,0 +1,27 @@
+version: '3.7'
+services:
+  postgres:
+    image: postgres:15
+    volumes:
+      - ./tmp/pgdata:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
+  delivery:
+    tty: true
+    stdin_open: true
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    depends_on:
+      - 'postgres'
+    command: /bin/sh -c "chmod +x ./start.sh && ./start.sh"
+    volumes:
+      - ./:/app
+    ports:
+      - "3000:3000"
+networks:
+  default:
+    name: myapp_default

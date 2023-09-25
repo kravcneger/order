@@ -21,6 +21,6 @@ class Dish < ApplicationRecord
       ORDER BY count DESC, name ASC)
     Select * from orders where count <> 0
     "
-    ActiveRecord::Base.connection.execute(query).to_a
+    connection.execute(query).to_a
   end
 end
